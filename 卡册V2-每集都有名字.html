@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卡册 · 全职猎人 148 集打卡</title>
+<style>
+  :root{
+    --paper:#F7F4EE;--ink:#1A1A1A;--green:#2F7D4F;--green-d:#1E5636;--gold:#B08D3E;
+    --line:#D8D2C4;--sub:#8A8578;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:Georgia,'Times New Roman','Noto Serif SC','Songti SC','STSong','SimSun',serif;
+    line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header{padding:56px 0 24px;}
+  .kicker{font-size:12px;letter-spacing:.22em;color:var(--sub);text-transform:uppercase;margin-bottom:20px;}
+  .kicker b{color:var(--green);font-weight:normal;}
+  h1{font-size:42px;font-weight:900;letter-spacing:.08em;margin-bottom:8px;}
+  .hero-en{font-style:italic;font-size:18px;color:var(--green);margin-bottom:14px;}
+  .sub{color:var(--sub);font-size:14px;}
+
+  /* 猎人执照卡 */
+  .license{
+    margin:22px 0 30px;border-radius:14px;padding:18px 20px;color:#fff;
+    background:linear-gradient(135deg,var(--green),var(--green-d));
+    display:flex;justify-content:space-between;align-items:center;
+    box-shadow:0 6px 18px rgba(47,125,79,.25);
+  }
+  .license .star{font-size:26px;letter-spacing:4px;line-height:1;}
+  .license .name{font-size:15px;font-weight:900;letter-spacing:.24em;margin-top:2px;}
+  .license .zh{font-size:11px;opacity:.8;letter-spacing:.3em;margin-top:2px;}
+  .license .right{text-align:right;}
+  .license .who{font-size:13px;opacity:.9;}
+  .license .no{font-size:22px;font-weight:900;letter-spacing:.08em;white-space:nowrap;}
+  .license .no small{font-size:11px;font-weight:normal;opacity:.75;}
+  @media (max-width:480px){.license .no{font-size:18px;}}
+
+  /* 统计 */
+  .tally{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;}
+  .tally .big{font-size:44px;font-weight:900;color:var(--green);line-height:1;}
+  .tally .of{color:var(--sub);font-size:15px;}
+  .bar{height:3px;background:var(--line);border-radius:2px;margin:6px 0 34px;}
+  .bar i{display:block;height:100%;width:0;background:var(--green);border-radius:2px;transition:width .4s;}
+
+  /* 篇章 */
+  .arc{margin-bottom:30px;}
+  .arc-head{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .badge{
+    width:38px;height:38px;border-radius:50%;flex:none;
+    border:1.5px solid var(--gold);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;font-weight:900;transition:all .3s;
+  }
+  .badge.lit{background:var(--gold);color:#fff;box-shadow:0 0 0 3px rgba(176,141,62,.2);}
+  .arc-title{font-size:19px;font-weight:900;letter-spacing:.04em;}
+  .arc-range{font-size:12px;color:var(--sub);letter-spacing:.06em;}
+  .arc-prog{margin-left:auto;font-size:13px;color:var(--sub);font-variant-numeric:tabular-nums;}
+
+  /* 名单 */
+  .list{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+  @media (max-width:600px){.list{grid-template-columns:1fr;}}
+  .row{
+    display:flex;align-items:center;gap:9px;width:100%;text-align:left;
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:9px 12px;cursor:pointer;font-family:inherit;font-size:13.5px;color:var(--ink);
+    transition:transform .12s;
+  }
+  .row:active{transform:scale(.97);}
+  .row .no{
+    font-variant-numeric:tabular-nums;font-size:11.5px;color:var(--sub);
+    letter-spacing:.05em;flex:none;min-width:26px;
+  }
+  .row .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .row.on{
+    background:linear-gradient(135deg,var(--green),var(--green-d));
+    border-color:var(--green-d);border-left:3px solid var(--gold);color:#fff;
+  }
+  .row.on .no{color:#F2D98B;}
+
+  /* 页脚 */
+  footer{padding:40px 0 60px;border-top:1px solid var(--line);margin-top:8px;}
+  .nen{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .nen span{
+    font-size:11.5px;letter-spacing:.12em;color:var(--sub);
+    border:1px solid var(--line);border-radius:999px;padding:3px 12px;
+  }
+  .mizumi{font-size:12.5px;color:var(--sub);margin-bottom:16px;}
+  .reset{
+    background:none;border:none;color:var(--sub);font-family:inherit;font-size:12px;
+    text-decoration:underline;cursor:pointer;padding:0;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">No.05 — <b>HUNTER×HUNTER</b> — WATCH LOG</p>
+    <h1>卡册</h1>
+    <p class="hero-en">One card per episode.</p>
+    <p class="sub">一百四十八张卡，每张都有名字。看完一集，收进一张——卡册写满的那天，你就是职业猎人。</p>
+  </header>
+
+  <div class="license">
+    <div>
+      <div class="star">★</div>
+      <div class="name">HUNTER LICENSE</div>
+      <div class="zh">猎人执照 · 贪婪之岛协定</div>
+    </div>
+    <div class="right">
+      <div class="who">持卡人：你</div>
+      <div class="no">NO.148 <small>/ 148</small></div>
+    </div>
+  </div>
+
+  <div class="tally">
+    <span class="big" id="seen">0</span>
+    <span class="of">/ 148 张 · 已收进卡册</span>
+  </div>
+  <div class="bar"><i id="barFill"></i></div>
+
+  <div id="arcs"></div>
+
+  <footer>
+    <div class="nen">
+      <span>强化系</span><span>放出系</span><span>变化系</span>
+      <span>操作系</span><span>具现化系</span><span>特质系</span>
+    </div>
+    <p class="mizumi">水见式：杯子里的水，会因为你的念而改变——卡册里的进度，也会因为你的坚持而改变。</p>
+    <button class="reset" onclick="resetAll()">整本清空（需确认）</button>
+  </footer>
+</div>
+
+<script>
+"use strict";
+const KEY="hunter_watch";
+const EP=[null,"旅程×与×同伴","试验×试验","对手×幸存者","希望×野心","西索×悄悄接近","意外×的×课题","飞行船×的×决赛","少数×服从×多数","小心×囚犯","欺敌×的×契机","赌博×产生的×麻烦","最后×的×觉悟","小杰×寄来的×信","命中×猎物","尔虞我诈×的×争夺战","败北×与×屈辱","洞窟×陷阱","重要×的×面试","打不赢×也×不认输","难以理解×的×发展","兄弟间×的×问题","危险×的×看门狗","守卫×的×责任","揍敌客×家族","看不到×就×见不到","从那之后×跟×接下来","登上×斗技场","念×与×燃","觉醒×跟×可能性","激烈战斗×与×纠葛","因缘×与×执著","惊奇×的×胜利","肤浅×的×威胁","凭实力×雪耻","确实×的×合格","大大的人情×与×小小一踢","金×与×小杰","老爸×的×答复","愿望×跟×誓言","念能力者×是×协力者","豪杰×齐聚","防守×与×攻击","冲击×的×惨剧","激战×的×伏笔","拘束×与×约束","追迹者×和×等待之人","制约×与×誓约","利眼×的×眼力","追踪×加×分析","伙伴×与×刀","残酷×的×战场","袭击×与×冲击","伪装×的×假象","失准×的×占卜","同伴×与×作假","最爱×与×最糟","抢先×与×规定","结束×的×理由","竞标×与×焦躁","定案×与×开始","延揽×与×挚友","现实×与×原石","师父×很×无情","许可×与×恐吓","邪拳×与×猜拳","攻略×与×策略","15×与×15","海盗×与×推测","热血×对决","毅力×跟×友情","谈判×与×交易","追踪×机会","凶器×和×正气","胜者×与×败者","金的朋友×和×真朋友","再开×和×理会","不安×和×出现","恐怖×的×增值","NG×的×NGL","极恶×与×灾难","战斗×的×开始","凯特×的×小丑","感化×之后的×进化","命定×的×觉醒","光×和×影","誓约×和×重新开始","决斗×中×逃亡","猜拳×的×弱点","温柔×与×强大","利息×和×诅咒","强者×与×弱者","一个愿望×与×两个誓言","和×庞姆×约会","朋友×与×启程","怨恨×和×可怕","非法×的×家园","激斗×与×歼灭","潜入×与×筛选","配合×和×生物进化","追缉×就是×追击","伊加路哥×和×雷神","能力×和×对弈","罪×和×黄泉","迷惑×和×不知所措","觉悟×和×觉醒","诺布×和×莫老五","回归×和×引退","小麦×的×军仪","前进开始×所以×行动开始","困惑×和×念头","突入×和×侵入","怪物×对×怪物","虫子×和×恩惠","分隔×和×误算","义务×和×疑问","复仇×与×修复","侮辱×和×雪耻","伪装×的×愤怒","是×强×还是×弱","假的×和×真的","败北×和×脸面","原则×和×名字","蜈蚣×和×追忆","溃决×和×觉醒","武之长处×和×武之短处","零×和×蔷薇","敌意×和×决意","无上的喜悦×和×无偿的爱","目标×和×目的","魔法×和×绝望","愤怒×和×希望","先攻×和×先动","生存×的×期限","一句话×就是×那个人","这个人×和×这个瞬间","归乡×和×真名","十二支×的×争论","撒娇要求×和×许愿","阿路加×和×拿尼加","参选×和×改选","魔术师×和×执事","念针×和×狩猎","罪×和×指甲","裁决×和×喝彩","完败×和×再会","会长×和×废除","拯救×和×未来","从今为止×和×从今以后"];
+const ARCS=[
+  ["猎人试验篇","试",1,21],
+  ["天空竞技场篇","塔",22,36],
+  ["幻影旅团篇","蛛",37,58],
+  ["贪婪之岛篇","岛",59,75],
+  ["嵌合蚁篇","蚁",76,135],
+  ["会长选举篇","选",136,148]
+];
+let state;
+try{state=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){state={};}
+
+function buildAll(){
+  const root=document.getElementById("arcs");
+  root.innerHTML="";
+  ARCS.forEach(a=>{
+    const sec=document.createElement("section");
+    sec.className="arc";
+    let rows="";
+    for(let e=a[2];e<=a[3];e++){
+      const title=EP[e]||"";
+      rows+='<button class="row'+(state[e]?" on":"")+'" data-e="'+e+'">'
+          +'<span class="no">'+String(e).padStart(3,"0")+'</span>'
+          +'<span class="t">'+title+'</span></button>';
+    }
+    sec.innerHTML='<div class="arc-head">'
+      +'<div class="badge">'+a[1]+'</div>'
+      +'<div><div class="arc-title">'+a[0]+'</div>'
+      +'<div class="arc-range">EP.'+String(a[2]).padStart(3,"0")+' — '+String(a[3]).padStart(3,"0")+'</div></div>'
+      +'<div class="arc-prog" id="p'+a[2]+'"></div>'
+      +'</div><div class="list">'+rows+'</div>';
+    root.appendChild(sec);
+  });
+  root.querySelectorAll(".row").forEach(b=>{
+    b.onclick=()=>toggle(b);
+  });
+  checkArcs();
+}
+function toggle(b){
+  const e=+b.dataset.e;
+  state[e]=!state[e];
+  localStorage.setItem(KEY,JSON.stringify(state));
+  b.classList.toggle("on",state[e]);
+  renderTally();checkArcs();
+}
+function checkArcs(){
+  document.querySelectorAll(".arc").forEach((sec,i)=>{
+    const a=ARCS[i];let full=true;
+    for(let e=a[2];e<=a[3];e++)if(!state[e])full=false;
+    sec.querySelector(".badge").classList.toggle("lit",full);
+  });
+  ARCS.forEach(a=>{
+    let cnt=0;
+    for(let e=a[2];e<=a[3];e++)if(state[e])cnt++;
+    const p=document.getElementById("p"+a[2]);
+    if(p)p.textContent=cnt+"/"+(a[3]-a[2]+1);
+  });
+}
+function renderTally(){
+  const n=Object.values(state).filter(Boolean).length;
+  document.getElementById("seen").textContent=n;
+  document.getElementById("barFill").style.width=(n/148*100)+"%";
+}
+function resetAll(){
+  if(!confirm("整本卡册清空？这一步不后悔。"))return;
+  state={};localStorage.setItem(KEY,"{}");buildAll();renderTally();
+}
+buildAll();renderTally();
+</script>
+</body>
+</html>
